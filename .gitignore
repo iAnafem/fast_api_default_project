@@ -1,0 +1,7 @@
+backend/venv
+backend/.idea
+frontend/node_modules
+backend/.env
+backend/__pycache__/
+__pycache__/
+
