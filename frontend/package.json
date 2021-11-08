@@ -1,0 +1,34 @@
+{
+  "name": "react_default_app",
+  "version": "1.0.0",
+  "description": "React default app with webpack and typescript",
+  "main": "src/index.tsx",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iAnafem/fast_api_default_project.git"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "webpack"
+  ],
+  "author": "Dmitriy Pronkin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iAnafem/fast_api_default_project/issues"
+  },
+  "homepage": "https://github.com/iAnafem/fast_api_default_project#readme",
+  "devDependencies": {
+    "css-loader": "^6.5.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.4.4",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.4.4",
+    "webpack": "^5.62.1",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.4.0"
+  }
+}

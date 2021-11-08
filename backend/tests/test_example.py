@@ -6,7 +6,7 @@ from fastapi import FastAPI
 pytestmark = pytest.mark.asyncio
 
 
-def test_example(app: FastAPI, client: AsyncClient) -> None:
+async def test_example(app: FastAPI, client: AsyncClient) -> None:
     assert True
 
 
