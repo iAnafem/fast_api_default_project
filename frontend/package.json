@@ -4,7 +4,9 @@
   "description": "React default app with webpack and typescript",
   "main": "src/index.tsx",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "webpack serve --port 3000",
+    "build": "NODE_ENV=production webpack"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
   },
   "homepage": "https://github.com/iAnafem/fast_api_default_project#readme",
   "devDependencies": {
+    "@types/react-dom": "^17.0.11",
     "css-loader": "^6.5.1",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.4.4",
@@ -30,5 +33,12 @@
     "webpack": "^5.62.1",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.4.0"
+  },
+  "dependencies": {
+    "core-js": "^3.19.1",
+    "raf": "^3.4.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "whatwg-fetch": "^3.6.2"
   }
 }
