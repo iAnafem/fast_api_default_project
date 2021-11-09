@@ -16,6 +16,18 @@ services:
     depends_on:
       - db
 
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - ./frontend/:/frontend/
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
   db:
     image: postgres:14
     restart: always
