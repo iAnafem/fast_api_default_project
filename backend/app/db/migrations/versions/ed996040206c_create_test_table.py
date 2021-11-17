@@ -15,17 +15,25 @@ down_revision = None
 branch_labels = None
 depends_on = None
 
+test_table = "test_table"
+
 
 def create_test_table() -> None:
     op.create_table(
-        "test_table",
+        test_table,
         sa.Column("id", sa.Integer, primary_key=True),
         sa.Column("msg", sa.Text, nullable=False, index=True),
     )
 
 
+def insert_test_entry() -> None:
+    op.execute(
+        "INSERT INTO test_table (msg) values ('Hello, db is here!')")
+
+
 def upgrade() -> None:
     create_test_table()
+    insert_test_entry()
 
 
 def downgrade() -> None:
