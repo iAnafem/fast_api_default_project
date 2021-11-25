@@ -27,7 +27,7 @@ echo "Database server is ${db_server}"
 echo "Database port is ${db_port}"
 echo "Database user is ${db_user}"
 echo "Database password is ${db_password}"
-echo "Secret key is is ${secret_key}"
+echo "Secret key is ${secret_key}"
 sed -i "s&MAIN_DB_USER.*&MAIN_DB_USER=$db_user&g" backend/.env.template
 sed -i "s&MAIN_DB_PORT.*&MAIN_DB_PORT=$db_port&g" backend/.env.template
 sed -i "s&MAIN_DB_SERVER.*&MAIN_DB_SERVER=$db_server&g" backend/.env.template
