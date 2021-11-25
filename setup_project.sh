@@ -28,9 +28,18 @@ echo "Database port is ${db_port}"
 echo "Database user is ${db_user}"
 echo "Database password is ${db_password}"
 echo "Secret key is is ${secret_key}"
-sed -i "s&MAIN_DB_USER.*&MAIN_DB_USER=$db_user&g" .env.template
-sed -i "s&MAIN_DB_PORT.*&MAIN_DB_PORT=$db_port&g" .env.template
-sed -i "s&MAIN_DB_SERVER.*&MAIN_DB_SERVER=$db_server&g" .env.template
-sed -i "s&MAIN_DB_PASSWORD.*&MAIN_DB_PASSWORD=$db_password&g" .env.template
-sed -i "s&MAIN_DB_NAME.*&MAIN_DB_NAME=$db_name&g" .env.template
-sed -i "s&SECRET_KEY.*&SECRET_KEY=$secret_key&g" .env.template
+sed -i "s&MAIN_DB_USER.*&MAIN_DB_USER=$db_user&g" backend/.env.template
+sed -i "s&MAIN_DB_PORT.*&MAIN_DB_PORT=$db_port&g" backend/.env.template
+sed -i "s&MAIN_DB_SERVER.*&MAIN_DB_SERVER=$db_server&g" backend/.env.template
+sed -i "s&MAIN_DB_PASSWORD.*&MAIN_DB_PASSWORD=$db_password&g" backend/.env.template
+sed -i "s&MAIN_DB_NAME.*&MAIN_DB_NAME=$db_name&g" backend/.env.template
+sed -i "s&SECRET_KEY.*&SECRET_KEY=$secret_key&g" backend/.env.template
+
+rm backend/.env.template backend/.env
+
+mv ../fast_api_default_project ../$project_name
+
+sed -i "s&fast_api_default_project&$project_name&g" *
+
+sed -i "s&react_default_app&$project_name&g" *
+
