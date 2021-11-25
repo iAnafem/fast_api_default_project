@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo Hello, Bastard!
+echo Hello! Nice to meet you!
 
 while getopts ":n:d:P:u:p:s:k:" opt; do
   case "${opt}" in
@@ -35,11 +35,12 @@ sed -i "s&MAIN_DB_PASSWORD.*&MAIN_DB_PASSWORD=$db_password&g" backend/.env.templ
 sed -i "s&MAIN_DB_NAME.*&MAIN_DB_NAME=$db_name&g" backend/.env.template
 sed -i "s&SECRET_KEY.*&SECRET_KEY=$secret_key&g" backend/.env.template
 
-rm backend/.env.template backend/.env
+mv backend/.env.template backend/.env
 
 mv ../fast_api_default_project ../$project_name
 
-sed -i "s&fast_api_default_project&$project_name&g" *
+grep -rli 'fast_api_default_project' * | xargs -i@ sed -i "s/fast_api_default_project/$project_name/g" @
 
-sed -i "s&react_default_app&$project_name&g" *
+grep -rli 'react_default_app' * | xargs -i@ sed -i "s/react_default_app/$project_name/g" @
 
+echo Done!
