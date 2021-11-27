@@ -28,16 +28,16 @@ echo "Database port is ${db_port}"
 echo "Database user is ${db_user}"
 echo "Database password is ${db_password}"
 echo "Secret key is ${secret_key}"
-sed -i "s&MAIN_DB_USER.*&MAIN_DB_USER=$db_user&g" backend/.env.template
-sed -i "s&MAIN_DB_PORT.*&MAIN_DB_PORT=$db_port&g" backend/.env.template
-sed -i "s&MAIN_DB_SERVER.*&MAIN_DB_SERVER=$db_server&g" backend/.env.template
-sed -i "s&MAIN_DB_PASSWORD.*&MAIN_DB_PASSWORD=$db_password&g" backend/.env.template
-sed -i "s&MAIN_DB_NAME.*&MAIN_DB_NAME=$db_name&g" backend/.env.template
+sed -i "s&POSTGRES_USER.*&POSTGRES_USER=$db_user&g" backend/.env.template
+sed -i "s&POSTGRES_PORT.*&POSTGRES_PORT=$db_port&g" backend/.env.template
+sed -i "s&POSTGRES_SERVER.*&POSTGRES_SERVER=$db_server&g" backend/.env.template
+sed -i "s&POSTGRES_PASSWORD.*&POSTGRES_PASSWORD=$db_password&g" backend/.env.template
+sed -i "s&POSTGRES_DB.*&POSTGRES_DB=$db_name&g" backend/.env.template
 sed -i "s&SECRET_KEY.*&SECRET_KEY=$secret_key&g" backend/.env.template
 
 mv backend/.env.template backend/.env
 
-sed -i "s&db_port:db_port&$db_port:$db_port&g" docker-compose.yml
+sed -i "s&db_port:5432&$db_port:5432&g" docker-compose.yml
 sed -i "s&db_server&$db_server&g" docker-compose.yml
 sed -i "s&- db_server&- $db_server&g" docker-compose.yml
 
