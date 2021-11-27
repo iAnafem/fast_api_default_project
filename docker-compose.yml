@@ -21,7 +21,6 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     restart: always
-    command: bash -c "webpack && npm start"
     volumes:
       - ./frontend/:/frontend/
     ports:
