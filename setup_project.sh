@@ -29,7 +29,7 @@ echo "Database user is ${db_user}"
 echo "Database password is ${db_password}"
 echo "Secret key is ${secret_key}"
 sed -i "s&POSTGRES_USER.*&POSTGRES_USER=$db_user&g" backend/.env.template
-sed -i "s&POSTGRES_PORT.*&POSTGRES_PORT=$db_port&g" backend/.env.template
+sed -i "s&POSTGRES_PORT.*&POSTGRES_PORT=5432&g" backend/.env.template
 sed -i "s&POSTGRES_SERVER.*&POSTGRES_SERVER=$db_server&g" backend/.env.template
 sed -i "s&POSTGRES_PASSWORD.*&POSTGRES_PASSWORD=$db_password&g" backend/.env.template
 sed -i "s&POSTGRES_DB.*&POSTGRES_DB=$db_name&g" backend/.env.template
@@ -48,9 +48,11 @@ grep -rli 'fast_api_default_project' * | xargs -i@ sed -i "s/fast_api_default_pr
 
 grep -rli 'react_default_app' * | xargs -i@ sed -i "s/react_default_app/$project_name/g" @
 
-cd ../$project_name
 
 cd frontend
 npm install
 
 echo Done!
+echo Run containers!
+
+docker-compose up --build -d
