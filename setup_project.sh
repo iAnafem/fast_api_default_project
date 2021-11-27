@@ -37,6 +37,10 @@ sed -i "s&SECRET_KEY.*&SECRET_KEY=$secret_key&g" backend/.env.template
 
 mv backend/.env.template backend/.env
 
+sed -i "s&db_port:db_port&$db_port:$db_port&g" docker-compose.yml
+sed -i "s&db_server&$db_server&g" docker-compose.yml
+
+
 mv ../fast_api_default_project ../$project_name
 
 grep -rli 'fast_api_default_project' * | xargs -i@ sed -i "s/fast_api_default_project/$project_name/g" @
