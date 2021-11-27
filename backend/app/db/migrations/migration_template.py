@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic
-revision = 'ed996040206c'
+revision = "init_revision"
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -37,5 +37,4 @@ def upgrade() -> None:
 
 
 def downgrade() -> None:
-    pass
-    # op.drop_table("test_table")
+    op.drop_table("test_table")

@@ -57,7 +57,11 @@ source backend/venv/bin/activate
 pip install --upgrade pip
 pip install -r backend/requirements.txt
 
-echo Done!
-echo Run containers!
+echo Run containers
 
 docker-compose up --build -d
+
+docker exec -i "${project_name}_backend_1" bash -c "alembic revision -m 'init_revision'"
+
+exit
+
