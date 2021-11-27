@@ -77,6 +77,8 @@ sed -i "s/revision_id/${revision_id}/g" "${migrations_path}/migrations_template.
 
 rm -f "${file_name}"
 
-cp "${migrations_path}/migrations_template.py" "${migrations_path}/versions/${revision_id}${suffix}"
+mv "${migrations_path}/migrations_template.py" "${migrations_path}/versions/${revision_id}${suffix}"
+
+docker exec -i "${project_name}_backend_1" bash -c "alembic upgrade head"
 
 echo Done!
