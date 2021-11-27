@@ -23,7 +23,6 @@ services:
     restart: always
     volumes:
       - ./frontend/:/frontend/
-    command: bash -c "webpack && npm start"
     ports:
       - "3000:3000"
     depends_on:

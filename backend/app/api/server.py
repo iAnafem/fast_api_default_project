@@ -5,7 +5,7 @@ from app.api.routes import router as api_router
 
 
 def get_application():
-    application = FastAPI(title="project_name", version="1.0.0")
+    application = FastAPI(title=config.PROJECT_NAME, version="1.0.0")
 
     application.add_middleware(
         CORSMiddleware,
