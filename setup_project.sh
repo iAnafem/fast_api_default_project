@@ -52,6 +52,11 @@ grep -rli 'react_default_app' * | xargs -i@ sed -i "s/react_default_app/$project
 cd frontend
 npm install
 
+cd ../ && python3.10 -m venv backend/venv
+source backend/venv/bin/activate
+pip install --upgrade pip
+pip install -r backend/requirements.txt
+
 echo Done!
 echo Run containers!
 
