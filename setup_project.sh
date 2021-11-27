@@ -39,7 +39,7 @@ mv backend/.env.template backend/.env
 
 sed -i "s&db_port:db_port&$db_port:$db_port&g" docker-compose.yml
 sed -i "s&db_server&$db_server&g" docker-compose.yml
-sed -i "s&- db&- $db_server&g" docker-compose.yml
+sed -i "s&- db_server&- $db_server&g" docker-compose.yml
 
 
 mv ../fast_api_default_project ../$project_name

@@ -1,0 +1,1 @@
+{"version":3,"file":"main.css","mappings":";;;AAAA;EACE,eAAe;AACjB","sources":["webpack://react_default_app/./src/index.css"],"sourcesContent":["body {\n  color: darkblue;\n}\n"],"names":[],"sourceRoot":""}
