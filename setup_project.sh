@@ -63,5 +63,20 @@ docker-compose up --build -d
 
 docker exec -i "${project_name}_backend_1" bash -c "alembic revision -m 'init_revision'"
 
-exit
+migrations_path=backend/app/db/migrations
+suffix=_init_revision.py
 
+file_name=$(find ${migrations_path}/versions/ -type f -name "*${suffix}")
+
+revision_id="${file_name#${migrations_path}/versions/}"
+revision_id="${revision_id%_init*}"
+
+echo "Revision id is ${revision_id}"
+
+sed -i "s/revision_id/${revision_id}/g" "${migrations_path}/migrations_template.py"
+
+rm -f "${file_name}"
+
+cp "${migrations_path}/migrations_template.py" "${migrations_path}/versions/${revision_id}${suffix}"
+
+echo Done!
