@@ -48,6 +48,8 @@ grep -rli 'fast_api_default_project' * | xargs -i@ sed -i "s/fast_api_default_pr
 
 grep -rli 'react_default_app' * | xargs -i@ sed -i "s/react_default_app/$project_name/g" @
 
+cd ../$project_name
+
 cd frontend
 npm install
 
