@@ -51,7 +51,7 @@ const App = observer(() => {
         <p>{db_msg}</p>
         <button
           type="button"
-          onClick={() => store.fetch(backend_url, store.setDbMsg)}
+          onClick={() => store.fetch(db_url, store.setDbMsg)}
         >
           Say hello to db, using MobX action
         </button>

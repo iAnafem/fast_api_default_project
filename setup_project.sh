@@ -59,7 +59,7 @@ pip install -r backend/requirements.txt
 
 echo Run containers
 
-docker-compose up --build -d
+docker-compose -f docker-compose.dev.yml up --build -d
 
 docker exec -i "${project_name}_backend_1" bash -c "alembic revision -m 'init_revision'"
 
