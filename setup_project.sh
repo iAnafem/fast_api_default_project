@@ -37,9 +37,9 @@ sed -i "s&SECRET_KEY.*&SECRET_KEY=$secret_key&g" backend/.env.template
 
 mv backend/.env.template backend/.env
 
-sed -i "s&db_port:5432&$db_port:5432&g" docker-compose.yml
-sed -i "s&db_server&$db_server&g" docker-compose.yml
-sed -i "s&- db_server&- $db_server&g" docker-compose.yml
+sed -i "s&db_port:5432&$db_port:5432&g" docker-compose.dev.yml
+sed -i "s&db_server&$db_server&g" docker-compose.dev.yml
+sed -i "s&- db_server&- $db_server&g" docker-compose.dev.yml
 
 
 mv ../fast_api_default_project ../$project_name
