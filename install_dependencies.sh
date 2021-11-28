@@ -12,7 +12,7 @@ echo \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io
-echo docker --version
+docker --version
 sudo docker run hello-world
 
 echo Install docker-compose v.1.29.2
@@ -20,6 +20,7 @@ echo Install docker-compose v.1.29.2
 # From https://docs.docker.com/compose/install/
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+
 docker-compose --version
 
 echo Install python3.10
@@ -33,6 +34,6 @@ sudo apt install python3.10-dev
 sudo pip3 install --upgrade pip
 sudo apt install python3.10-venv
 
-echo python3 --version
+python3 --version
 
 echo Done!
